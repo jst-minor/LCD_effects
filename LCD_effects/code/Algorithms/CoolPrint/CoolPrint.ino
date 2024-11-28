@@ -2,7 +2,7 @@
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
 
-//---------------SETTINGS---------------//
+//-------------------SETTINGS-------------------//
 #define tmr0 500    //Cursor flicker rate, ms
 #define tmr1 150    //Character output rate, ms
 
@@ -22,8 +22,7 @@ void setup(){
   lcd.init();
   lcd.backlight();
 
-  /*Setting coordinates and the text - you can do this at any 
-  place in the program according to your needs.*/
+  //--------------------Setting coordinates and the text--------------------//
   CursorX = 0; CursorY = 0;
   ToWrite = "ABCDEFGHIJKLMNOPGRSTUVWXYZ/nit works!!!        Even like that";
 }
@@ -61,7 +60,7 @@ void loop(){
     }
   }
 
-  //---------blinking the cursor---------//
+  //----------blinking the cursor----------//
   if (millis() - CursorPassedTime >= tmr0){
     lcd.setCursor(CursorX, CursorY);
     CursorPassedTime = millis();
